@@ -236,7 +236,7 @@ const ChatBox = () => {
       {/* Input box */}
       <form
         onSubmit={onSubmit}
-        className="bg-primary/20 dark:bg-[#583C79]/30 border border-primary dark:border-[#80609F]/30 rounded-full w-full max-w-2xl mx-auto p-3 pl-4 flex gap-4 items-center mb-5"
+        className=" bg-primary/20 dark:bg-[#583C79]/30 border border-primary dark:border-[#80609F]/30 rounded-full w-full max-w-2xl mx-auto p-3 pl-4 flex gap-4 items-center sticky bottom-4"
       >
         <select
           onChange={(e) => setMode(e.target.value)}
