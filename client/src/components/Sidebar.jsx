@@ -33,7 +33,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
   }
 
   return (
-    <div className={`flex flex-col h-screen min-w-72 p-5 dark:bg-gradient-to-b from-[#242124]/30 to-[#000000]/30 border-r border-[#80609F]/30 backdrop-blur-3xl transition-all duration-500 max-wd:absolute left-0 z-1 ${!isMenuOpen && 'max-md:-translate-x-full'}`}>
+    <div  className={`fixed top-0 left-0 h-full w-72 p-5 dark:bg-gradient-to-b from-[#242124]/30 to-[#000000]/30 border-r border-[#80609F]/30 backdrop-blur-3xl transition-transform duration-300 z-50
+      ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+      md:static md:translate-x-0`}>
         {/* logo */}
         <img className='w-full max-w-48' src={theme=== 'dark'? assets.logo.full : assets.logo_full_dark} alt="" />
 
@@ -66,7 +68,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
                   </p>
                 </div>
 
-                <img onClick={e=> toast.promise(deleteChat(e, chat._id), {loading: 'deleting...'})} src={assets.bin_icon} className='hidden group-hover:block w-4 cursor-pointer not-dark:invert' alt="" />
+                <img onClick={e=> toast.promise(deleteChat(e, chat._id), {loading: 'deleting...'})} src={assets.bin_icon} className=' group-hover:block w-4 cursor-pointer not-dark:invert' alt="" />
 
               </div>
             ))
@@ -110,7 +112,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
 
           <p className='flex-1 text-sm dark:text-primary truncate'>{user ? user.name : 'Login your account' }</p>
 
-          {user && <img  onClick={logout} src={assets.logout_icon} className='h-5 cursor-pointer hidden not-dark:invert group-hover:block'/>}
+          {user && <img  onClick={logout} src={assets.logout_icon} className='h-5 cursor-pointer not-dark:invert group-hover:block'/>}
 
         </div>
 
